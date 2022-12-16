@@ -1,0 +1,23 @@
+footer{
+    float: left;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgba(192, 192, 192, 0.733);
+    position: fixed;
+    bottom: 0;
+}
+h3{
+    width: 100%;
+    text-align: center;
+    color: aquamarine;
+    background-color: navy;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.test_image{
+    background-color: navajowhite;
+    margin-bottom: 10px;
+    width: 98%;
+    padding: 10px;
+    border-radius: 10px;
+}

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Google Lens VS ModelNet</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.js"></script>
+        <script src="https://unpkg.com/ml5@0.4.3/dist/ml5.min.js"></script>
+        <script src="main.js"></script>
+    </head>
+    <body>
+        <h3>Case Study between <b>Google Lens</b> and <b>MobileNet</b></h3>
+          <ul class="carousel-indicators">
+            <li data-target="#demo" data-slide-to="0" class="test_image col-xs-12 active">
+                <li class=" col-sm-4 col-xs-12">
+                    <p>Image Test :</p>
+                    <img src="hanger.jpg" alt="Clothes Hanger" class="img-responsive">
+                </li>
+                <h5 class="col-sm-4 col-xs-12">
+                    <span id="googleResult">Output on Google Lens :</span>
+                </h5>
+                <h5 class="col-sm-4 col-xs-12">
+                    <span id="modelResult">Output on ModelNet :</span>
+                </h5>
+                <p class="col-xs-12" id="resultTag">Result :</p>
+            </li>
+            <li data-target="#demo" data-slide-to="1" class="test_image col-xs-12">
+                <li class="col-sm-4 col-xs-12">
+                    <p>Image Test :</p>
+                    <img src="Shoes.jpg" alt="Pair of Shoes" class="img-responsive">
+                </li>
+                <h5 class="col-sm-4 col-xs-12">
+                    <span id="googleResult">Output on Google Lens :</span>
+                </h5>
+                <h5 class="col-sm-4 col-xs-12">
+                    <span id="modelResult">Output on ModelNet :</span>
+                </h5>
+                <p class="col-xs-12" id="resultTag">Result :</p>
+            </li>
+            <li data-target="#demo" data-slide-to="2" class="test_image col-xs-12">
+                <li class="col-sm-4 col-xs-12">
+                    <p>Image Test :</p>
+                    <img src="GrandfathersClock.jpg" alt="Grandfather Clock" class="img-responsive">
+                </li>
+                <h5 class="col-sm-4 col-xs-12">
+                    <span id="googleResult">Output on Google Lens :</span>
+                </h5>
+                <h5 class="col-sm-4 col-xs-12">
+                    <span id="modelResult">Output on ModelNet :</span>
+                </h5>
+                <p class="col-xs-12" id="resultTag">Result :</p>
+            </li>
+            <li data-target="#demo" data-slide-to="3" class="test_image col-xs-12">
+                <li class="col-sm-4 col-xs-12">
+                    <p>Image Test :</p>
+                    <img src="Radio.jpg" alt="Radio" class="img-responsive">
+                </li>
+                <h5 class="col-sm-4 col-xs-12">
+                    <span id="googleResult">Output on Google Lens :</span>
+                </h5>
+                <h5 class="col-sm-4 col-xs-12">
+                    <span id="modelResult">Output on ModelNet :</span>
+                </h5>
+                <p class="col-xs-12" id="resultTag">Result :</p>
+            </li> 
+            <li data-target="#demo" data-slide-to="4" class="test_image col-xs-12">
+                <li class="col-sm-4 col-xs-12">
+                    <p>Image Test :</p>
+                    <img src="TeaCup&Sauser.jpg" alt="Tea cup filled with tea on a sauser" class="img-responsive">
+                </li>
+                <h5 class="col-sm-4 col-xs-12">
+                    <span id="googleResult">Output on Google Lens :</span>
+                </h5>
+                <h5 class="col-sm-4 col-xs-12">
+                    <span id="modelResult">Output on ModelNet :</span>
+                </h5>
+                <p class="col-xs-12" id="resultTag">Result :</p>
+            </li>
+            <li data-target="#demo" data-slide-to="5" class="test_image col-xs-12">
+                <li class="col-sm-4 col-xs-12">
+                    <p>Image Test :</p>
+                    <img src="Bulb.jpg" alt="Light Bulb" class="img-responsive">
+                </li>
+                <h5 class="col-sm-4 col-xs-12">
+                    <span id="googleResult">Output on Google Lens :</span>
+                </h5>
+                <h5 class="col-sm-4 col-xs-12">
+                    <span id="modelResult">Output on ModelNet :</span>
+                </h5>
+                <p class="col-xs-12" id="resultTag">Result :</p>
+            </li>
+            <li data-target="#demo" data-slide-to="6" class="test_image col-xs-12">
+                <li class="col-sm-4 col-xs-12">
+                    <p>Image Test :</p>
+                    <img src="Scissors.jpg" alt="Pair of Scissors" class="img-responsive">
+                </li>
+                <h5 class="col-sm-4 col-xs-12">
+                    <span id="googleResult">Output on Google Lens :</span>
+                </h5>
+                <h5 class="col-sm-4 col-xs-12">
+                    <span id="modelResult">Output on ModelNet :</span>
+                </h5>
+                <p class="col-xs-12" id="resultTag">Result :</p>
+            </li>
+            <li data-target="#demo" data-slide-to="7" class="test_image col-xs-12">
+                <li class="col-sm-4 col-xs-12">
+                    <p>Image Test :</p>
+                    <img src="Matchbox.jpg" alt="A Matchbox containing matchsticks" class="img-responsive">
+                </li>
+                <h5 class="col-sm-4 col-xs-12">
+                    <span id="googleResult">Output on Google Lens :</span>
+                </h5>
+                <h5 class="col-sm-4 col-xs-12">
+                    <span id="modelResult">Output on ModelNet :</span>
+                </h5>
+                <p class="col-xs-12" id="resultTag">Result :</p>
+            </li> 
+            <div data-target="#demo" data-slide-to="8" class="test_image col-xs-12">
+                <li class="col-sm-4 col-xs-12">
+                    <p>Image Test :</p>
+                    <img src="Camera.jpg" alt="A Camera" class="img-responsive">
+                </li>
+                <h5 class="col-sm-4 col-xs-12">
+                    <span id="googleResult">Output on Google Lens :</span>
+                </h5>
+                <h5 class="col-sm-4 col-xs-12">
+                    <span id="modelResult">Output on ModelNet :</span>
+                </h5>
+                <p class="col-xs-12" id="resultTag">Result :</p>
+            </div> 
+            <div class="test_image col-xs-12">
+                <li class="col-sm-4 col-xs-12">
+                    <p>Image Test :</p>
+                    <img src="ruler.jpg" alt="A wooden mathematical ruler" class="img-responsive">
+                </li>
+                <h5 class="col-sm-4 col-xs-12">
+                    <span id="googleResult">Output on Google Lens :</span>
+                </h5>
+                <h5 class="col-sm-4 col-xs-12">
+                    <span id="modelResult">Output on ModelNet :</span>
+                </h5>
+                <p class="col-xs-12" id="resultTag">Result :</p>
+            </div>
+        </ul>
+        <P>[Results of camparision]</P>
+        <footer>Developed by Yashita Patil</footer>
+    </body>
+</html>
